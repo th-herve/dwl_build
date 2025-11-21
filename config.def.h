@@ -122,6 +122,14 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 /* commands */
 static const char *termcmd[] = { "kitty", NULL };
 static const char *menucmd[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh run", NULL};
+
+/* media commands */
+static const char *media_toggle[]   = {"playerctl", "--player=spotify", "play-pause", NULL};
+static const char *media_next[]     = {"playerctl", "next", NULL};
+static const char *media_prev[]     = {"playerctl", "previous", NULL};
+static const char *down_vol[]		= {"amixer", "sset", "Master", "2%-", NULL};
+static const char *up_vol[]			= {"amixer", "sset", "Master", "2%+", NULL};
+static const char *mute_vol[]		= {"amixer", "sset", "Master", "toggle", NULL};
  
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -150,6 +158,17 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_period,     focusmon,       {.i = WLR_DIRECTION_RIGHT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
+
+	/* Media keys */
+	{ 0,		XKB_KEY_XF86AudioRaiseVolume,		 spawn,			 {.v = up_vol } },
+	{ 0,		XKB_KEY_XF86AudioLowerVolume,		 spawn,			 {.v = down_vol } },
+	{ 0,		XKB_KEY_XF86AudioMute,				 spawn,			 {.v = mute_vol } },
+
+	{ 0,		XKB_KEY_XF86AudioPlay,				 spawn,			 {.v = media_toggle } },
+	{ 0,		XKB_KEY_XF86AudioNext,				 spawn,			 {.v = media_next } },
+	{ 0,		XKB_KEY_XF86AudioPrev,				 spawn,			 {.v = media_prev } },
+
+	/* Tag keys */
 	TAGKEYS(          XKB_KEY_a, XKB_KEY_A,							 0),
 	TAGKEYS(          XKB_KEY_s, XKB_KEY_S,							 1),
 	TAGKEYS(          XKB_KEY_d, XKB_KEY_D,							 2),
