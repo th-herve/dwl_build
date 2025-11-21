@@ -24,9 +24,12 @@ static int log_level = WLR_ERROR;
 /* NOTE: ALWAYS keep a rule declared even if you don't use rules (e.g leave at least one example) */
 static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor */
-	/* examples: */
-	{ "Gimp_EXAMPLE",     NULL,       0,            1,           -1 }, /* Start on currently visible tags floating, not tiled */
-	{ "firefox_EXAMPLE",  NULL,       1 << 8,       0,           -1 }, /* Start on ONLY tag "9" */
+	{ "chromium",		  NULL,       1 << 4,       0,           -1 },
+	{ "discord",		  NULL,       1 << 5,       0,           -1 },
+	{ "Spotify",		  NULL,       1 << 6,       0,           -1 },
+	{ "steam",			  NULL,       1 << 7,       0,           -1 },
+	{ "steam.*",		  NULL,       1 << 7,       0,           -1 },
+	{ NULL,				 "Calculator",0,			1,           -1 },
 };
 
 /* layout(s) */
