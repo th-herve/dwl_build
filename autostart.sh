@@ -19,5 +19,4 @@ wl-clip-persist --clipboard regular --reconnect-tries 0 &
 wl-paste --type text --watch cliphist store & 
 wl-paste --type image --watch cliphist store &
 
-~/.config/mango/script/spotify-notify.sh >/dev/null 2>&1 &
-
+~/.config/mango/script/spotify-notify.sh &
