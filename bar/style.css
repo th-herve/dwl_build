@@ -64,43 +64,19 @@ window#waybar {
 
 /*-----modules workspace-----*/
 
-#workspaces {
-  padding: 0 5px;
-}
+#tags button { min-width: 30px }
+#tags button > * { min-width: 0 }
 
-#workspaces button {
-  padding: 0 5px;
-  margin: 0;
-  color: @surface1;
-  background-color: transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each workspace name */
-  border: none;
-  border-radius: 0;
-}
-
-#workspaces button:nth-child(4),
-#workspaces button:nth-child(7) {
+#tags button:nth-child(4),
+#tags button:nth-child(7) {
   margin-right: 10px;
 }
 
-#tags button.focused,
-#workspaces button.active,
-#workspaces button.focused {
+#tags button.focused {
   color: @teal;
 }
 
-/* Fix predefined gtk background effect on hover  */
-#workspaces button:hover {
-  background: none;
-  /* Uncomment to also disable text highlighting */
-  /* text-shadow: none; */
-}
-
-#tags button.urgent,
-#workspaces button.urgent,
-#temperature.critical {
+#tags button.urgent {
   color: @red;
 }
 
