@@ -124,7 +124,10 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "kitty", NULL };
-static const char *menucmd[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh run", NULL};
+static const char *runmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh run", NULL};
+static const char *killmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh kill", NULL};
+static const char *startmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh start", NULL};
+static const char *clipboardmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh clip", NULL};
 
 /* media commands */
 static const char *media_toggle[]   = {"playerctl", "--player=spotify", "play-pause", NULL};
@@ -137,9 +140,12 @@ static const char *mute_vol[]		= {"amixer", "sset", "Master", "toggle", NULL};
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
-	{ MODKEY,                    XKB_KEY_g,          spawn,          {.v = menucmd} },
+	{ MODKEY,                    XKB_KEY_g,          spawn,          {.v = runmenu} },
 	{ MODKEY,					 XKB_KEY_Return,     spawn,          {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          spawn,          {.v = killmenu} },
+	{ MODKEY,				     XKB_KEY_z,          spawn,          {.v = startmenu} },
+	{ MODKEY,				     XKB_KEY_v,          spawn,          {.v = clipboardmenu} },
+
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
 	// { MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
