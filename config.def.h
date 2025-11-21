@@ -127,6 +127,7 @@ static const Key keys[] = {
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_g,          spawn,          {.v = menucmd} },
 	{ MODKEY,					 XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
 	// { MODKEY,                    XKB_KEY_i,          incnmaster,     {.i = +1} },
@@ -149,7 +150,7 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_less,       tagmon,         {.i = WLR_DIRECTION_LEFT} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_greater,    tagmon,         {.i = WLR_DIRECTION_RIGHT} },
 	TAGKEYS(          XKB_KEY_a, XKB_KEY_A,							 0),
-	TAGKEYS(          XKB_KEY_s, XKB_KEY_B,							 1),
+	TAGKEYS(          XKB_KEY_s, XKB_KEY_S,							 1),
 	TAGKEYS(          XKB_KEY_d, XKB_KEY_D,							 2),
 	TAGKEYS(          XKB_KEY_f, XKB_KEY_F,							 3),
 	TAGKEYS(          XKB_KEY_q, XKB_KEY_Q,							 4),
