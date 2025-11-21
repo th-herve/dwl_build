@@ -176,8 +176,8 @@ static const Key keys[] = {
 	TAGKEYS(          XKB_KEY_q, XKB_KEY_Q,							 4),
 	TAGKEYS(          XKB_KEY_w, XKB_KEY_W,							 5),
 	TAGKEYS(          XKB_KEY_e, XKB_KEY_E,							 6),
-	TAGKEYS(          XKB_KEY_r, XKB_KEY_R,							 7),
-	TAGKEYS(          XKB_KEY_5, XKB_KEY_percent,                    8),
+	TAGKEYS(          XKB_KEY_5, XKB_KEY_percent,                    7),
+	TAGKEYS(          XKB_KEY_6, XKB_KEY_asciicircum,                8),
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_X,          quit,           {0} },
 
 	/* Ctrl-Alt-Backspace and Ctrl-Alt-Fx used to be handled by X server */
