@@ -89,8 +89,7 @@ start_menu() {
             hyprlock
             ;;
         "$EXIT")
-            # quit mango
-            mmsg -q
+            pkill -TERM dwl
             ;;
         "$REBOOT")
             systemctl reboot
