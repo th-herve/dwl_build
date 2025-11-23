@@ -14,6 +14,7 @@ static const float focuscolor[]            = COLOR(0xa6e3a1ff);
 static const float urgentcolor[]           = COLOR(0xf38ba8ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.0f, 0.0f, 0.0f, 1.0f}; /* You can also use glsl colors */
+static const int respect_monitor_reserved_area = 0;  /* 1 to monitor center while respecting the monitor's reserved area, 0 to monitor center */
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 #define TAGCOUNT (9)
@@ -23,13 +24,13 @@ static int log_level = WLR_ERROR;
 
 /* NOTE: ALWAYS keep a rule declared even if you don't use rules (e.g leave at least one example) */
 static const Rule rules[] = {
-	/* app_id             title       tags mask     isfloating   monitor */
-	{ "chromium",		  NULL,       1 << 4,       0,           -1 },
-	{ "discord",		  NULL,       1 << 5,       0,           -1 },
-	{ "Spotify",		  NULL,       1 << 6,       0,           -1 },
-	{ "steam",			  NULL,       1 << 7,       0,           -1 },
-	{ "steam.*",		  NULL,       1 << 7,       0,           -1 },
-	{ NULL,				 "Calculator",0,			1,           -1 },
+	/* app_id             title       tags mask     isfloating   monitor   x		y		width		height */
+	{ "chromium",		  NULL,       1 << 4,       0,           -1,	   0,  		0,  	0,      	0 },
+	{ "discord",		  NULL,       1 << 5,       0,           -1,	   0,  		0,  	0,      	0 },
+	{ "Spotify",		  NULL,       1 << 6,       0,           -1,	   0,  		0,  	0,      	0 },
+	{ "steam",			  NULL,       1 << 7,       0,           -1,	   0,  		0,  	0,      	0 },
+	{ "steam.*",		  NULL,       1 << 7,       0,           -1,	   0,  		0,  	0,      	0 },
+	{ NULL,				 "Calculator",0,			1,           -1,	   2180,	50,		355,		640 },
 };
 
 /* layout(s) */
@@ -131,6 +132,7 @@ static const char *runmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh
 static const char *killmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh kill", NULL};
 static const char *startmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh start", NULL};
 static const char *clipboardmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh clip", NULL};
+static const char *calculator[] = { "gnome-calculator", NULL};
 
 /* media commands */
 static const char *media_toggle[]   = {"playerctl", "--player=spotify", "play-pause", NULL};
@@ -148,6 +150,7 @@ static const Key keys[] = {
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_K,          spawn,          {.v = killmenu} },
 	{ MODKEY,				     XKB_KEY_z,          spawn,          {.v = startmenu} },
 	{ MODKEY,				     XKB_KEY_v,          spawn,          {.v = clipboardmenu} },
+	{ MODKEY,					 XKB_KEY_c,          spawn,			 {.v = calculator} },
 	{ MODKEY,					 XKB_KEY_o,          incxkbrules,    {.i = +1} },
 
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
