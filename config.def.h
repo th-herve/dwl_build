@@ -128,11 +128,12 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* commands */
 static const char *termcmd[] = { "kitty", NULL };
-static const char *runmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh run", NULL};
+static const char *runmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh run", NULL}; // sh -c necessary to expand $HOME
 static const char *killmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh kill", NULL};
 static const char *startmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh start", NULL};
 static const char *clipboardmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh clip", NULL};
 static const char *calculator[] = { "gnome-calculator", NULL};
+static const char *colorpicker[] = { "hyprpicker -a", NULL};
 
 /* media commands */
 static const char *media_toggle[]   = {"playerctl", "--player=spotify", "play-pause", NULL};
@@ -151,6 +152,7 @@ static const Key keys[] = {
 	{ MODKEY,				     XKB_KEY_z,          spawn,          {.v = startmenu} },
 	{ MODKEY,				     XKB_KEY_v,          spawn,          {.v = clipboardmenu} },
 	{ MODKEY,					 XKB_KEY_c,          spawn,			 {.v = calculator} },
+	{ MODKEY,					 XKB_KEY_p,          spawn,			 {.v = colorpicker} },
 	{ MODKEY,					 XKB_KEY_o,          incxkbrules,    {.i = +1} },
 
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
