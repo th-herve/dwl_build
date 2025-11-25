@@ -134,6 +134,8 @@ static const char *startmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.
 static const char *clipboardmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh clip", NULL};
 static const char *calculator[] = { "gnome-calculator", NULL};
 static const char *colorpicker[] = { "hyprpicker -a", NULL};
+static const char *screenshot[] = { "sh", "-c", "$HOME/.config/dwl/scripts/screenshot.sh", NULL};
+static const char *screenshotzone[] = { "sh", "-c", "$HOME/.config/dwl/scripts/screenshot.sh zone", NULL};
 
 /* media commands */
 static const char *media_toggle[]   = {"playerctl", "--player=spotify", "play-pause", NULL};
@@ -154,6 +156,8 @@ static const Key keys[] = {
 	{ MODKEY,					 XKB_KEY_c,          spawn,			 {.v = calculator} },
 	{ MODKEY,					 XKB_KEY_p,          spawn,			 {.v = colorpicker} },
 	{ MODKEY,					 XKB_KEY_o,          incxkbrules,    {.i = +1} },
+	{ 0,						 XKB_KEY_Print,		 spawn,			 {.v = screenshotzone} },
+	{ WLR_MODIFIER_CTRL,		 XKB_KEY_Print,		 spawn,			 {.v = screenshot} },
 
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
