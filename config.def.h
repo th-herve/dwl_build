@@ -27,7 +27,7 @@ static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor   x		y		width		height */
 	{ "chromium",		  NULL,       1 << 4,       0,           -1,	   0,  		0,  	0,      	0 },
 	{ "discord",		  NULL,       1 << 5,       0,           -1,	   0,  		0,  	0,      	0 },
-	{ "Spotify",		  NULL,       1 << 6,       0,           -1,	   0,  		0,  	0,      	0 },
+	{ "spotify",		  NULL,       1 << 6,       0,           -1,	   0,  		0,  	0,      	0 },
 	{ "steam",			  NULL,       1 << 7,       0,           -1,	   0,  		0,  	0,      	0 },
 	{ "steam.*",		  NULL,       1 << 7,       0,           -1,	   0,  		0,  	0,      	0 },
 	{ NULL,				 "Calculator",0,			1,           -1,	   2180,	50,		355,		640 },
