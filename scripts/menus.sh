@@ -40,7 +40,7 @@ dmenu_options=(
     -sb "$lavender"
     -sf "$base"
     -p "󰣇 "
-    -h 43
+    -h 39
     -i
 )
 
