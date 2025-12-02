@@ -169,8 +169,10 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
 	{ MODKEY,					 XKB_KEY_x,          killclient,     {0} },
 	{ MODKEY,                    XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                    XKB_KEY_m,          setlayout,      {0} }, // toggle last two layout
-	{ MODKEY,                    XKB_KEY_y,          togglefloating, {0} },
+	{ MODKEY,                    XKB_KEY_y,          setlayout,      {0} },
+	{ MODKEY,                    XKB_KEY_m,          togglelayout,   {0} },
+	// { MODKEY,                    XKB_KEY_space,      setlayout,      {0} }, // toggle last two layouts
+	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_space,      togglefloating, {0} },
 	{ MODKEY,                    XKB_KEY_u,         togglefullscreen,{0} },
 	{ MODKEY,                    XKB_KEY_0,          view,           {.ui = ~0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_parenright, tag,            {.ui = ~0} },

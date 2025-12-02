@@ -350,6 +350,7 @@ static void setcursor(struct wl_listener *listener, void *data);
 static void setcursorshape(struct wl_listener *listener, void *data);
 static void setfloating(Client *c, int floating);
 static void setfullscreen(Client *c, int fullscreen);
+static void togglelayout(const Arg *arg);
 static void setlayout(const Arg *arg);
 static void setmfact(const Arg *arg);
 static void setmon(Client *c, Monitor *m, uint32_t newtags);
@@ -2645,6 +2646,21 @@ setfullscreen(Client *c, int fullscreen)
 	}
 	arrange(c->mon);
 	printstatus();
+}
+
+void
+togglelayout(const Arg *arg)
+{
+	if (!selmon)
+		return;
+
+	if (selmon->lt[selmon->sellt] == &layouts[0]) {
+		Arg a = {.v = &layouts[2]};
+		setlayout(&a);
+	} else {
+		Arg a = {.v = &layouts[0]};
+		setlayout(&a);
+	}
 }
 
 void
