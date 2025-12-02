@@ -57,6 +57,14 @@
         ]
     },
 
+    "dwl/window": {
+        "format": "{layout}",
+        "rewrite": {
+           "\\[\\]=": "",
+           "\\[.\\]": "  ",
+        }
+    },
+
     "custom/logo": {
         "format": "󰣇"
     }
