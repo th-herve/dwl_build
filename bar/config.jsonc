@@ -1,7 +1,7 @@
 {
     "layer": "bottom",
     "position": "top",
-    "modules-left": ["custom/logo", "dwl/tags"],
+    "modules-left": ["custom/logo", "dwl/tags", "dwl/window"],
     "modules-right": ["pulseaudio", "tray","clock"],
 
     "custom/keyboard": {
