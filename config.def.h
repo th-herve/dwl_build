@@ -133,7 +133,7 @@ static const char *killmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.s
 static const char *startmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh start", NULL};
 static const char *clipboardmenu[] = { "sh", "-c", "$HOME/.config/dwl/scripts/menus.sh clip", NULL};
 static const char *calculator[] = { "gnome-calculator", NULL};
-static const char *colorpicker[] = { "hyprpicker -a", NULL};
+static const char *colorpicker[] = { "hyprpicker", "-a", NULL};
 static const char *screenshot[] = { "sh", "-c", "$HOME/.config/dwl/scripts/screenshot.sh", NULL};
 static const char *screenshotzone[] = { "sh", "-c", "$HOME/.config/dwl/scripts/screenshot.sh zone", NULL};
 
